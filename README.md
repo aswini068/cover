@@ -1,5 +1,5 @@
-# Ex.07 interative photo gallery
-## Date:12/11/24
+# Ex.05 CREATE A BOOK COVER
+## Date:19/11/24
 
 ## AIM:
 To design a book front cover page using HTML and CSS.
@@ -36,121 +36,171 @@ Publish the website in the LocalHost.
 ```
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Web Design Book Cover</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;600&family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 20;
+      padding: 20;
+      background-color: #cccec9;
+      font-family: 'Comic Sans MS', sans-serif;
+    }
+
+    .book-cover {
+      width: 500px;
+      height: 700px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      margin: 50px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Main Image */
+    .book-cover .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 100%;
+    }
+     
+
+    /* Main Title */
+    .book-cover .title1 {
+      position: absolute;
+      top: 100px;
+      left: 35px;
+      font-family: 'Lobster',cursive;
+      font-size: 42px;
+      font-weight: 600;
+      color:  #ec6f03;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    /* Horizontal Line 1 */
+    .book-cover .line1 {
+      position: absolute;
+      top: 143px;
+      left: 35px;
+      width: 427px;
+    }
+    
+
+    /* Subtitle 1 */
+    .book-cover .subtitle1 {
+      position: absolute;
+      top: 190px;
+      left: 100px;
+      font-size: 18px;
+      font-family: 'allura', cursive;
+      font-weight: 600;
+      color: #2298f3;
+    }
+
+    /* Subtitle 2 */
+    .book-cover .subtitle2 {
+      position: absolute;
+      top: 210px;
+      left: 80px;
+      font-size: 18px;
+      font-family: 'allura', cursive;
+      font-weight: 600;
+      color: #2298f3;
+    }
+
+    /* Subtitle 3 */
+    .book-cover .subtitle3 {
+      position: absolute;
+      top: 230px;
+      left: 70px;
+      font-size: 18px;
+      font-family: 'allura', cursive;
+      font-weight: 600;
+      color:  #2298f3;
+    }
+
+    /* Horizontal Line 3 */
+    .book-cover .line3 {
+      position: absolute;
+      bottom: 30px;
+      left: 20px;
+      width: 350px;
+    }
+
+    /* Author Image */
+    .book-cover .mypic {
+      position: absolute;
+      top: 570px;
+      left: 380px;
+      width: 100px;
+      height: 100px;
+      border-radius: 30%;
+      border: 3px solid  #7DF9FF;
+    }
+
+    .book-cover .mypic img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    /* 2024 Text */
+    .book-cover .end {
+      position: absolute;
+      bottom: 5px;
+      left: 20px;
+      font-size: 18px;
+      color: #1F51FF;
+      font-weight: 600;
+    }
+
+    /* Author Name */
+    .book-cover .author {
+      position: absolute;
+      bottom: 5px;
+      right: 16px;
+      font-size: 14px;
+      color: #6ee2f7;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      height: 3px;
+      background-color:  #7DF9FF;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="cover-container">
-        <div class="content">
-            <p class="insight">EXPERT INSIGHT</p>
-            <h1>Responsive Web Design with<br>HTML5 and CSS</h1>
-            <p class="subtitle">Develop future-proof responsive websites<br>using the latest HTML5 and CSS techniques</p>
-            <p class="edition">Third Edition</p>
-            <p class="author">HARINI R - CSE(CS)</p>
-            <p class="publisher">SEC</p>
-        </div>
-    </div>
+  <div class="book-cover">
+    <img src="img.jpeg" alt="Book Cover Image" class="image">
+    <div class="insight">SCI-FI</div>
+    <div class="line1"><hr></div>
+    <div class="title1">INTRODUCTION TO CODING</div>
+    <div class="line2"><hr></div>
+    <div class="subtitle2">CODING IN ALL LANGUAGE</div>
+    <div class="line3"><hr></div>
+    <div class="end">2024    SCI-FIC</div>
+    <div class="author">ASWINI M</div>
+  </div>
 </body>
+
 </html>
 ```
-## style.css:
-```
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #1081f2;
-    font-family: Arial, sans-serif;
-  }
-  
-  .cover-container {
-    width: 700px;
-    height: 700px;
-    padding: 20px;
-    background-image: url('bg.jpeg'); /* Ensure the path is correct */
-    background-size: cover;
-    background-position: center;
-    color: #0f0f0f;
-    text-align: left;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-
-.insight {
-  font-size: 35px;
-  color: #ff6b35;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  font-size: 20px;
-  color:black;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-
-.edition {
-  font-size: 25px;
-  color: #fe4704;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-author {
-  font-size: 30px;
-  font-weight: bold;
-  color:#0d0c0c;
-  margin-bottom: 5px;
-}
-
-.publisher {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fbf4f4;
-    position: absolute;
-    bottom: 20px;
-    right: 20px; 
-
-}
-
-.cover-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 C300,100 900,0 1200,100 V120 H0 Z" fill="%23ffffff" opacity="0.2"/></svg>') no-repeat center center;
-  background-size: cover;
-  z-index: 1;
-  opacity: 0.5;
-}
-```
-
 
 ## OUTPUT:
-
+![alt text](<cover/Screenshot (223).png>)
 
 ## RESULT:
 The program for designing book front cover page using HTML and CSS is completed successfully.
