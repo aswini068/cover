@@ -39,83 +39,118 @@ Publish the website in the LocalHost.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Photo Gallery</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Responsive Web Design Book Cover</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Interactive Photo Gallery</h1>
-    <div id="image">Hover over an image below to display here.</div>
-    
-    <div class="gallery">
-        <img class = "preview" alt = "Night Sky" src = "https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	    <img class = "preview" alt = "Rose" src = "https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	    <img class = "preview" src = "https://images.pexels.com/photos/2130610/pexels-photo-2130610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt = "Paris" onmouseover = "upDate(this)" onmouseout = "unDo()">
-        <img class = "preview" alt = "Turtle" src = "https://images.pexels.com/photos/5277693/pexels-photo-5277693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	    <img class = "preview" alt = "Cute Puppy" src = "https://images.pexels.com/photos/3687770/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	    <img class = "preview" src = "https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=600" alt = "Baby" onmouseover = "upDate(this)" onmouseout = "unDo()">
+    <div class="cover-container">
+        <div class="content">
+            <p class="insight">EXPERT INSIGHT</p>
+            <h1>Responsive Web Design with<br>HTML5 and CSS</h1>
+            <p class="subtitle">Develop future-proof responsive websites<br>using the latest HTML5 and CSS techniques</p>
+            <p class="edition">Third Edition</p>
+            <p class="author">HARINI R - CSE(CS)</p>
+            <p class="publisher">SEC</p>
+        </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
 ```
 ## style.css:
 ```
-body{
-    margin: 2%;
-    border: 1px solid black;
-    background-color: #b3b3b3;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#image{
-line-height:100px;
-    width: 375px;
-height: 150px;
-    border:5px solid black;
-    margin:0 auto;
-background-color: #8e68ff;
-background-image: url('');
-background-repeat: no-repeat;
-color:#FFFFFF;
-text-align: center;
-background-size: 100%;
-margin-bottom:25px;
-font-size: 120%;
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1081f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  .cover-container {
+    width: 700px;
+    height: 700px;
+    padding: 20px;
+    background-image: url('bg.jpeg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    color: #0f0f0f;
+    text-align: left;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+
+.insight {
+  font-size: 35px;
+  color: #ff6b35;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-.preview{
-    width:10%;
-    margin-left:17%;
-border: 9px solid black;
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
-img{
-    width:95%;
+
+.subtitle {
+  font-size: 20px;
+  color:black;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.edition {
+  font-size: 25px;
+  color: #fe4704;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+author {
+  font-size: 30px;
+  font-weight: bold;
+  color:#0d0c0c;
+  margin-bottom: 5px;
+}
+
+.publisher {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fbf4f4;
+    position: absolute;
+    bottom: 20px;
+    right: 20px; 
+
+}
+
+.cover-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 C300,100 900,0 1200,100 V120 H0 Z" fill="%23ffffff" opacity="0.2"/></svg>') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.5;
 }
 ```
 
-## script.js:
-```
-// Reference to the image container
-const imageDiv = document.getElementById('image');
-const originalImageUrl = ''; // Set this to the URL of your original image
-const originalText = "Hover over an image below to display here."; // Original text
-
-function upDate(previewPic) {
-    // Change the background image to the source of the hovered image
-    imageDiv.style.backgroundImage = `url('${previewPic.src}')`;
-    
-    // Update the text to the alt text of the hovered image
-    imageDiv.innerHTML = previewPic.alt;
-}
-
-function unDo() {
-    // Reset the background image to the original URL
-    imageDiv.style.backgroundImage = `url('${originalImageUrl}')`; // Use the original image URL here
-    
-    // Change the text back to the original text
-    imageDiv.innerHTML = originalText;
-    
- ```
 
 ## OUTPUT:
-![alt text](<Screenshot (215).png>)
+
 
 ## RESULT:
 The program for designing book front cover page using HTML and CSS is completed successfully.
